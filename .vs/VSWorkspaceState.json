@@ -2,12 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\bin",
+    "\\models",
     "\\public",
-    "\\public\\javascripts",
+    "\\public\\images",
     "\\public\\stylesheets",
     "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\app.js",
+  "SelectedNode": "\\notes.txt",
   "PreviewInSolutionExplorer": false
 }
