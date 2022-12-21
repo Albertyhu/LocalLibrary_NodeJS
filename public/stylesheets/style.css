@@ -4,5 +4,32 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.layout {
+    display: grid; 
+}
+
+.footer {
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #808080;
+    color: #fff;
+}
+
+@media screen and (min-width: 640px) {
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+    }
 }
