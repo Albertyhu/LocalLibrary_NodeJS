@@ -11,6 +11,6 @@
     "\\views",
     "\\views\\partials"
   ],
-  "SelectedNode": "\\views\\partials\\footer.ejs",
+  "SelectedNode": "\\controllers\\authorController.js",
   "PreviewInSolutionExplorer": false
 }
