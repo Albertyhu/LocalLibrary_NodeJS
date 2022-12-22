@@ -2,13 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\bin",
+    "\\controllers",
     "\\models",
     "\\public",
-    "\\public\\images",
+    "\\public\\javascripts",
     "\\public\\stylesheets",
     "\\routes",
-    "\\views"
+    "\\views",
+    "\\views\\partials"
   ],
-  "SelectedNode": "\\notes.txt",
+  "SelectedNode": "\\views\\partials\\footer.ejs",
   "PreviewInSolutionExplorer": false
 }
