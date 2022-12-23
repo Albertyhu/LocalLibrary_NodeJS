@@ -16,20 +16,20 @@
                 <%- include("partials/sidebar") %>
                 </div>
                 <div>
-                    <h1>Genre: <%= genre.name %></h1> 
-                    <h4>Books</h4>
-                    <%//genre_books is declared in genreController.js   %>
-                    <% if(genre_books){%>
-                        <dl>
-                        <% genre_books.forEach(val => {%>
-                            <dt>
-                                <a href=""><%= val.title %></a>
-                            </dt>
-                            <dd><%= val.summary%></dd>
+                    <h1><%= title %></h1> 
+                    <% if(book_list){%>
+                        <ul>
+                        <% book_list.forEach(val => {%>
+                            <li>
+                                <span>
+                                    <a href = "<%=val.url%>"><%= val.title %></a>  
+                                    (<span><%= val.author.name %></span>)
+                                </span>
+                            </li>
                         <% }) %>
-                        </dl>
+                        </ul>
                     <% } else { %>
-                        <p>There are no books within this genre in the database.</p>
+                        <p>There are no authors in the database.</p>
                     <% }%>
                 </div>
             </div>

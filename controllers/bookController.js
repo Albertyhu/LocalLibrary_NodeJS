@@ -35,13 +35,57 @@ exports.index = (req, res) => {
 };
 
 // Display list of all books.
-exports.book_list = (req, res) => {
-  res.send("NOT IMPLEMENTED: Book list");
+exports.book_list = (req, res, next) => {
+    Book.find({}, "title author")
+        .sort({ title: 1})
+        .populate("author")
+        .exec(function (err, result) {
+            if (err) {
+                return next(err); 
+            }
+            if (result != null) {
+                res.render("book_list", {
+                    title: "Book List", 
+                    book_list: result, 
+                })
+            }
+
+        })
+
 };
 
 // Display detail page for a specific book.
-exports.book_detail = (req, res) => {
-  res.send(`NOT IMPLEMENTED: Book detail: ${req.params.id}`);
+exports.book_detail = (req, res, next) => {
+    async.parallel(
+        {
+            book(callback) {
+                Book.findById(req.params.id)
+                    .populuate("author")
+                    .populate("genre")
+                    .exec(callback)
+            },
+            book_instance(callback) {
+                BookInstance.find({ book: req.params.id })  
+                    .exec(callback)
+                        
+            },
+        },
+        (err, results) => {
+            if (err) {
+                return next(err)
+            }
+            if (results.book == null) {
+                const err = new Error("Book not found");
+                err.status = 404; 
+                return next(err)
+            }
+            res.render("book_detail", {
+                title: results.book.title,
+                book: results.book,
+                book_instances : results.book_instance, 
+            })
+        }
+    )
 };
 
 // Display book create form on GET.
