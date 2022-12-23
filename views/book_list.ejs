@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-sm-2 layout">
+                <div>
+                <%- include("partials/sidebar") %>
+                </div>
+                <div>
+                    <h1><%= title %></h1> 
+                    <% if(book_list){%>
+                        <ul>
+                        <% book_list.forEach(val => {%>
+                            <li>
+                                <span>
+                                    <a href = "<%=val.url%>"><%= val.title %></a>  
+                                    (<span><%= val.author.name %></span>)
+                                </span>
+                            </li>
+                        <% }) %>
+                        </ul>
+                    <% } else { %>
+                        <p>There are no authors in the database.</p>
+                    <% }%>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+	<script src="index.js"></script>
+  </body>
+</html>
