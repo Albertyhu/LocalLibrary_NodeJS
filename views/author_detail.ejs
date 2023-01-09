@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-sm-2 layout">
+                <div>
+                <%- include("partials/sidebar") %>
+                </div>
+                <div>
+                    <h1>Author: <%= author.name %></h1> 
+                    <p><%= author.date_of_birth%> 
+                        <% if(author.date_of_death) { %>
+                         <span>- <%= author.date_of_death%></span>
+                        <% } %>
+                    </p>
+                    <%if(author_books) { %>
+                        <h4>Books</h4>
+                        <dl>
+                            <% author_books.forEach(val =>{ %>
+                                <dt>
+                                    <a href ="<%= val.url %>" ><%=val.title%></a>
+                                </dt>
+                                <dd>
+                                    <%= val.summary %>
+                                </dd>
+                            <% }) %>
+                        </dl>
+                    <%} else { %>
+                        <p>This author has no books</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+	<script src="index.js"></script>
+  </body>
+</html>
