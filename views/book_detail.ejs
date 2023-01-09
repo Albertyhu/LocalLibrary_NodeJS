@@ -32,6 +32,22 @@
                     </span>
                     <% } %>
                     </div>
+                    <h4>Copies</h4>
+                    <hr>
+                    <% if(book_instances) { %> 
+                        <% book_instances.forEach( val => { %> 
+                            <div>
+                                <div><b><%=val.status%></b></div>
+                                <div><b>Imprint:</b><%= val.imprint %></div>
+                                <% if(val.due_back){ %>
+                                    <div><b>Due back:</b><%= val.due_back %></div>
+                                <% } %>
+                                <div><b>id:</b><%= val.book%></div>
+                            </div>
+                            <br>
+                        <%}) %>
+                    <% } %> 
+
                 </div>
             </div>
         </div>
