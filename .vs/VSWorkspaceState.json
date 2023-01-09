@@ -5,12 +5,11 @@
     "\\controllers",
     "\\models",
     "\\public",
-    "\\public\\javascripts",
     "\\public\\stylesheets",
     "\\routes",
     "\\views",
     "\\views\\partials"
   ],
-  "SelectedNode": "\\controllers\\authorController.js",
+  "SelectedNode": "\\models\\Genre.js",
   "PreviewInSolutionExplorer": false
 }

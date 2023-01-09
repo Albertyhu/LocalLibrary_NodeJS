@@ -60,7 +60,7 @@ exports.book_detail = (req, res, next) => {
         {
             book(callback) {
                 Book.findById(req.params.id)
-                    .populuate("author")
+                    .populate("author")
                     .populate("genre")
                     .exec(callback)
             },
