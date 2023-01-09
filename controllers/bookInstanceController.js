@@ -1,4 +1,5 @@
 const BookInstance = require("../models/bookinstance");
+const async = require('async'); 
 
 // Display list of all BookInstances.
 //book is one of the fields in the schema BookInstanceSchema 
@@ -24,8 +25,23 @@ exports.bookinstance_list = (req, res) => {
 };
 
 // Display detail page for a specific BookInstance.
-exports.bookinstance_detail = (req, res) => {
-  res.send(`NOT IMPLEMENTED: BookInstance detail: ${req.params.id}`);
+exports.bookinstance_detail = (req, res, next) => {
+    BookInstance.findById(req.params.id)
+        .populate('book')
+        .exec((err, bookinstance) => {
+            if (err) {
+                return next(err);
+            }
+            if (bookinstance === null) {
+                const err = new Error("Book copy not found")
+                err.status = 404; 
+                return next(err); 
+            }
+            res.render("bookinstance_detail", {
+                title: `Copy: ${bookinstance.book.title}`,
+                bookinstance, 
+            })
+        })
 };
 
 // Display BookInstance create form on GET.

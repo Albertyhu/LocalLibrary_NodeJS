@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-sm-2 layout">
+                <div>
+                <%- include("partials/sidebar") %>
+                </div>
+                <div>
+                    <% if(bookinstance) {%>
+                        <h1>ID: <%= bookinstance._id%></h1>
+                        <div><b>Title</b><a href='<%= bookinstance.book.url %>' ><%= bookinstance.book.title %></a></div>
+                        <div><b>Imprint:</b> <%= bookinstance.imprint%></div>
+                        <div>
+                           <b>Status:</b>
+                            <%= bookinstance.status%>
+                        </div>
+                        <div><b>Due back:</b><%= bookinstance.due_back %></div>
+                    <% } else { %>}
+                        <span>No copy of this book is available</span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+	<script src="index.js"></script>
+  </body>
+</html>
