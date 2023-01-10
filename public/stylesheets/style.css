@@ -27,9 +27,21 @@ a {
     color: #fff;
 }
 
+.form-group {
+    display: grid; 
+}
+
+    .form-group > label {
+        margin: 10px 0;
+    }
+    .form-group > input {
+        margin: 10px 0;
+    } 
+
 @media screen and (min-width: 640px) {
     .layout {
         display: grid;
         grid-template-columns: 15% 85%; 
     }
 }
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-sm-2 layout">
+                <div>
+                  <%- include("partials/sidebar") %>
+                </div>
+                <div> 
+                    <h1><%= title %></h1>
+                    <form 
+                    method="POST" 
+                    action ="">
+                        <div>
+                            <label for = "name">Genre: </label>
+                            <input 
+                                class="form-control" 
+                                type='text' 
+                                placeholder='Fantasy, Poetry, etc.' 
+                                name='name'
+                            />
+                            <button type = "submit">Submit</button>
+                        </div>
+                    </form>
+                    <% if(errors){%>
+                        <ul>
+                            <% errors.forEach( err =>{ %> 
+                                <li><%= err.msg %></li>
+                            <% }) %>
+                        </ul>
+                    <% } else { %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+	<script src="index.js"></script>
+  </body>
+</html>
