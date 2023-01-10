@@ -18,13 +18,13 @@
                 <div>
                     <% if(bookinstance) {%>
                         <h1>ID: <%= bookinstance._id%></h1>
-                        <div><b>Title</b><a href='<%= bookinstance.book.url %>' ><%= bookinstance.book.title %></a></div>
+                        <div><b>Title: </b><a href='<%= bookinstance.book.url %>' ><%= bookinstance.book.title %></a></div>
                         <div><b>Imprint:</b> <%= bookinstance.imprint%></div>
                         <div>
                            <b>Status:</b>
                             <%= bookinstance.status%>
                         </div>
-                        <div><b>Due back:</b><%= bookinstance.due_back %></div>
+                        <div><b>Due back: </b><%= bookinstance.due_back_formatted %></div>
                     <% } else { %>}
                         <span>No copy of this book is available</span>
                     <% } %>

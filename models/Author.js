@@ -29,6 +29,7 @@ AuthorSchema.virtual("url").get(function () {
   return `/catalog/author/${this._id}`;
 });
 
+//uses the luxon library
 AuthorSchema.virtual("birth_date_formatted").get(function(){
     return this.date_of_birth != null ?
         DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
@@ -37,11 +38,23 @@ AuthorSchema.virtual("birth_date_formatted").get(function(){
 })
 
 AuthorSchema.virtual("death_date_formatted").get(function(){
-    //return this.date_of_death != null ?
-    //    DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
-    //    :
-    //    ""; 
+    return this.date_of_death ?
+        DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
+        :
+        ""; 
     return this.date_of_death
+})
+
+AuthorSchema.virtual("lifespan").get(function () {
+    const birth = this.date_of_birth ?
+        DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
+        :
+        "";
+    const death = this.date_of_death ?
+        DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
+        :
+        "";
+    return `${birth} - ${death}`; 
 })
 
 // Export model
